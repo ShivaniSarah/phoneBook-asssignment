@@ -180,36 +180,67 @@ curl -X POST http://127.0.0.1:8000/api/spam/mark/ \
 
 phoneBook Hey there!
 
-python3 -m venv venv 
+python3 -m venv venv
+
 source venv/bin/activate 
+
 deactivate
-pip3 install django djangorestframework 
+
+pip3 install django djangorestframework
+
 pip3 install djangorestframework-simplejwt django-cors-headers 
+
 django-admin startproject phoneBook 
+
 cd phoneBook 
+
 python3 manage.py startapp core 
+
 pip3 install psycopg2-binary 
+
 brew install postgresql 
+
 brew services start 
-postgresql createuser -s postgres psql -U postgres 
+
+postgresql createuser -s postgres psql -U postgres
+
 \l 
+
 \c 
+
 postgres 
+
 \dt 
-TRUNCATE TABLE core_user CASCADE; 
+
+TRUNCATE TABLE core_user CASCADE;
+
 exit 
-cd /Users/shivaniagrawal/PycharmProjects/phoneBook-asssignment/phoneBook 
+
+cd /Users/shivaniagrawal/PycharmProjects/
+phoneBook-asssignment/phoneBook 
+
 python3 manage.py makemigrations core 
+
 python3 manage.py makemigrations core --empty --name add_spam_trigger 
+
 python3 manage.py makemigrations core --empty --name enable_pg_trgm 
+
 python3 manage.py migrate 
+
 python3 manage.py inspectdb 
+
 python3 manage.py shell < populate_data.py 
-pip3 install pytest 
+
+pip3 install pytest
+
 pip3 install pytest-django 
+
 pip3 freeze > requirements.txt
+
 cd /Users/shivaniagrawal/PycharmProjects/phoneBook-asssignment/phoneBook 
+
 pytest core/tests/test_views.py 
+
 python3 manage.py runserver
 
 
